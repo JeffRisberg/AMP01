@@ -33,5 +33,5 @@ node_modules/
 aws-exports.js
 awsconfiguration.json
 .amplifyrc
-.graphqlconfig.yaml
+.graphqlconfig.yml
 
