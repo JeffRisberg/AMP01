@@ -6,6 +6,7 @@ import {listNotes} from './graphql/queries';
 
 class App extends Component {
     state = {
+        id: "",
         note: "",
         notes: []
     };
@@ -27,9 +28,11 @@ class App extends Component {
         const input = {id: noteId};
         const result = await API.graphql(graphqlOperation(deleteNote, {input}));
         const deletedNoteId = result.data.deleteNote.id;
-        const updatedNotes = notes.filter( note => note.id !== deletedNoteId);
+        const updatedNotes = notes.filter(note => note.id !== deletedNoteId);
         this.setState({notes: updatedNotes});
     };
+
+    handleSetNote = ({note, id}) => this.setState({note, id});
 
     async componentDidMount() {
         const result = await API.graphql(graphqlOperation(listNotes));
@@ -58,7 +61,12 @@ class App extends Component {
                 <div>
                     {notes.map(item => (
                         <div key={item.id} className="flex items-center">
-                            <li className="list pa1 f3">{item.note}</li>
+
+                            <li className="list pa1 f3"
+                            onClick={() => this.handleSetNote(item)}>
+                                {item.note}
+                            </li>
+
                             <button className="bg-transparent bn f4"
                                     onClick={() => this.handleDeleteNote(item.id)}>
                                 <span>&times;</span>
