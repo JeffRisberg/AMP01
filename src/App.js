@@ -31,7 +31,7 @@ class App extends Component {
                         <div key={item.id} className="flex items-center">
                             <li className="list pa1 f3">{item.note}</li>
                             <button className="bg-transparent bn f4">
-                                <span>&times</span>
+                                <span>&times;</span>
                             </button>
                         </div>
                     ))}
@@ -41,4 +41,4 @@ class App extends Component {
     }
 }
 
-export default withAuthenticator(App);
+export default withAuthenticator(App, { includeGreetings: true});
