@@ -25,7 +25,6 @@ class App extends Component {
     handleAddNote = async event => {
         const {note, notes} = this.state;
         event.preventDefault();
-        // check if we have an existing note, if so update it
         if (this.hasExistingNote()) {
             this.handleUpdateNote();
         } else {
