@@ -26,7 +26,7 @@ class App extends Component {
                 <h1 className="code f2-1">
                     Amplify Notetaker
                 </h1>
-                <form className="mb3" onSubmit={this.hnadleAddNote}>
+                <form className="mb3" onSubmit={this.handleAddNote}>
                     <input className="pa2 f4"
                            placeholder="Write your note" onChange={this.handleChangeNote}/>
                     <button className="pa2 f4" type="submit">
