@@ -1,12 +1,21 @@
 import React, {Component} from 'react';
-
+import {API, graphqlOperation} from 'aws-amplify';
 import {withAuthenticator} from 'aws-amplify-react';
+import {createNote} from './graphql/mutations';
 
 class App extends Component {
     state = {
-        notes: [
-            {id: 1, note: "Hello World"}
-        ]
+        note: "",
+        notes: []
+    };
+
+    handleChangeNote = event => this.setState({note: event.target.value});
+
+    handleAddNote = event => {
+        const {note} = this.state;
+        event.preventDefault();
+        const input = {note};
+        API.graphql(graphqlOperation(createNote, {input}))
     };
 
     render() {
@@ -17,9 +26,9 @@ class App extends Component {
                 <h1 className="code f2-1">
                     Amplify Notetaker
                 </h1>
-                <form className="mb3">
+                <form className="mb3" onSubmit={this.hnadleAddNote}>
                     <input className="pa2 f4"
-                           placeholder="Write your note"/>
+                           placeholder="Write your note" onChange={this.handleChangeNote}/>
                     <button className="pa2 f4" type="submit">
                         Add Note
                     </button>
@@ -41,4 +50,4 @@ class App extends Component {
     }
 }
 
-export default withAuthenticator(App, { includeGreetings: true});
+export default withAuthenticator(App, {includeGreetings: true});
