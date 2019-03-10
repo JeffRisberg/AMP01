@@ -1,22 +1,22 @@
 // eslint-disable
 // this is an auto generated file. This will be overwritten
 
-export const getTodo = `query GetTodo($id: ID!) {
-  getTodo(id: $id) {
+export const getNote = `query GetNote($id: ID!) {
+  getNote(id: $id) {
     id
-    name
+    note
   }
 }
 `;
-export const listTodos = `query ListTodos(
-  $filter: ModelTodoFilterInput
+export const listNotes = `query ListNotes(
+  $filter: ModelNoteFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listNotes(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      name
+      note
     }
     nextToken
   }
