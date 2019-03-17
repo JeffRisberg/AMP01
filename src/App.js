@@ -83,7 +83,7 @@ class App extends Component {
                            onChange={this.handleChangeNote}
                            value={note}/>
                     <button className="pa2 f4" type="submit">
-                        {id ? 'Update Note' : 'AddNote'}
+                        {id ? 'Update Note' : 'Add Note'}
                     </button>
                 </form>
 
