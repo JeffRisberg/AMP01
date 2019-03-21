@@ -35,3 +35,5 @@ awsconfiguration.json
 .amplifyrc
 .graphqlconfig.yml
 
+.idea/workspace.xml
+.idea/tasks.xml
